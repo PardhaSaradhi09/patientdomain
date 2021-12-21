@@ -8,7 +8,7 @@ public class PatientData {
 	private int pid;
 	private String firstName;
 	private String lastName;
-	private char gender;
+	private String gender;
 	private byte age;
 	private Long phn;
 	private String address;
@@ -16,7 +16,7 @@ public class PatientData {
 	private LocalDate dateOfJoin;
 	private	LocalDate dateOfDischarge;
 	
-	public PatientData(int pid, String firstName, String lastName, char gender, byte age, Long phn, String address,
+	public PatientData(int pid, String firstName, String lastName, String gender, byte age, Long phn, String address,
 			int doctorID, LocalDate dateOfJoin, LocalDate dateOfDischarge) {
 		super();
 		this.pid = pid;
@@ -30,6 +30,10 @@ public class PatientData {
 		this.dateOfJoin = dateOfJoin;
 		this.dateOfDischarge=dateOfDischarge;
 		
+	}
+
+	public PatientData() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getpid() {
@@ -56,11 +60,11 @@ public class PatientData {
 		this.lastName = lastName;
 	}
 
-	public char getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(char gender) {
-		this.gender = gender;
+	public void setGender(String string) {
+		this.gender = string;
 	}
 
 	public byte getAge() {

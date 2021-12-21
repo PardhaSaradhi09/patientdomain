@@ -11,17 +11,17 @@ import org.hospital.utils.PatientDataUtils;
 
 class PatientClient {
 	public static void main(String args[]) {
-		PatientData patient0 = new PatientData(100, "Mahesh", "Rao", 'M', (byte) 30, 7416457574L, "Vizag", 201,
+		PatientData patient0 = new PatientData(100, "Mahesh", "Rao", "M", (byte) 30, 7416457574L, "Vizag", 201,
 				LocalDate.of(2020, 02, 12), LocalDate.now());
-		PatientData patient1 = new PatientData(101, "Ramesh", "Rao", 'M', (byte) 42, 7416457574L, "Vizag", 203,
+		PatientData patient1 = new PatientData(101, "Ramesh", "Rao", "M", (byte) 42, 7416457574L, "Vizag", 203,
 				LocalDate.of(2020, 02, 22), LocalDate.now());
-		PatientData patient2 = new PatientData(102, "Suresh", "Rao", 'M', (byte) 60, 7416457574L, "Vizag", 202,
+		PatientData patient2 = new PatientData(102, "Suresh", "Rao", "M", (byte) 60, 7416457574L, "Vizag", 202,
 				LocalDate.of(2021, 03, 01), LocalDate.now());
-		PatientData patient3 = new PatientData(103, "Geetha", "Rani", 'F', (byte) 54, 7416457574L, "Vizag", 202,
+		PatientData patient3 = new PatientData(103, "Geetha", "Rani", "F", (byte) 54, 7416457574L, "Vizag", 202,
 				LocalDate.of(2021, 03, 05), LocalDate.now());
-		PatientData patient4 = new PatientData(104, "Anjali", "Varma", 'F', (byte) 29, 7416457574L, "Vizag", 202,
+		PatientData patient4 = new PatientData(104, "Anjali", "Varma", "F", (byte) 29, 7416457574L, "Vizag", 202,
 				LocalDate.of(2020, 03, 12), LocalDate.now());
-		PatientData patient5 = new PatientData(105, "Geetha", "Rani", 'F', (byte) 35, 7416457574L, "Vizag", 502,
+		PatientData patient5 = new PatientData(105, "Geetha", "Rani", "F", (byte) 35, 7416457574L, "Vizag", 502,
 				LocalDate.of(2021, 02, 12), LocalDate.now());
 		PatientService patientService = new PatientServiceImpl();
 		//first 
@@ -73,9 +73,9 @@ class PatientClient {
 		//System.out.println(financeServices.getPatientDueBills());
 		//System.out.println(financeServices.getPatientDueBills());
 		//System.out.println(financeServices.billPaidByCash());
-		PatientDataUtils obj=new PatientDataUtils();
-		PatientService obj1=new PatientJdbcServiceImpl();
-		System.out.println(obj1.getAllPatients());
+		
+		PatientService jdbcService=new PatientJdbcServiceImpl();
+		System.out.println(jdbcService.topNPatients(3));
 
 	}
 }
