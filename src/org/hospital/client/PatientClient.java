@@ -18,11 +18,15 @@ class PatientClient {
 		PatientData patient2 = new PatientData(102, "Suresh", "Rao", "M", (byte) 60, 7416457574L, "Vizag", 202,
 				LocalDate.of(2021, 03, 01), LocalDate.now());
 		PatientData patient3 = new PatientData(103, "Geetha", "Rani", "F", (byte) 54, 7416457574L, "Vizag", 202,
-				LocalDate.of(2021, 03, 05), LocalDate.now());
+				LocalDate.of(2021, 03, 05), LocalDate.of(2021, 04, 05));
 		PatientData patient4 = new PatientData(104, "Anjali", "Varma", "F", (byte) 29, 7416457574L, "Vizag", 202,
-				LocalDate.of(2020, 03, 12), LocalDate.now());
+				LocalDate.of(2020, 03, 12), LocalDate.of(2021, 03, 15));
 		PatientData patient5 = new PatientData(105, "Geetha", "Rani", "F", (byte) 35, 7416457574L, "Vizag", 502,
-				LocalDate.of(2021, 02, 12), LocalDate.now());
+				LocalDate.of(2021, 02, 12), LocalDate.of(2021, 03, 05));
+		PatientData patient6  = new PatientData(106, "Sree", "Valli", "F", (byte) 35, 7416457574L, "Vizag", 302,
+				LocalDate.of(2021, 04, 12), LocalDate.of(2021, 05, 05));
+		PatientData patient7 = new PatientData(107, "Kavitha", "Rani", "F", (byte) 35, 7416457574L, "Vizag", 502,
+				LocalDate.of(2021, 04, 01), LocalDate.of(2021, 04, 05));
 		PatientService patientService = new PatientServiceImpl();
 		//first 
 		patientService.addPatient(patient0);
@@ -42,9 +46,9 @@ class PatientClient {
 				"Online Payment", 0.0, LocalDate.now());
 		FinanceData record5 = new FinanceData(104, 202, "Anjali", "Varma", 'F', (byte) 29, 201, 5251.25, "Cash", 2500.0,
 				LocalDate.now());
-		FinanceData record6 = new FinanceData(105, 502, "Geetha", "Rani", 'F', (byte) 35, 201, 5051.25, "Card", 0.0,
+		FinanceData record6 = new FinanceData(105, 502, "Sree", "Valli", 'F', (byte) 35, 201, 5051.25, "Card", 0.0,
 				LocalDate.now());
-		FinanceData record7 = new FinanceData(105, 502, "Geetha", "Rani", 'F', (byte) 35, 201, 5051.25, "Card", 0.0,
+		FinanceData record7 = new FinanceData(105, 502, "Kavitha", "Rani", 'F', (byte) 35, 201, 5051.25, "Card", 0.0,
 				LocalDate.now());
 
 //		FinanceSevices financeServices = new FinanceServicesImpl();
@@ -56,11 +60,11 @@ class PatientClient {
 //		financeServices.addFinanceRecord(record5);
 //		financeServices.addFinanceRecord(record6);
 //		financeServices.addFinanceRecord(record7);
-
-//		System.out.println(patientService.getAllPatients());
+		//patientService.deletePatient(100);
+		//System.out.println(patientService.getAllPatients());
 //		System.out.println(patientService.getPatient(102));
 //		System.out.println(patientService.getPatient(101));
-		// patientService.deletePatient(obj2);
+		
 
 //		System.out.println(patientService.getAllPatients());
 		// System.out.println(patientService.updatePatientJoiningDate(100));
@@ -75,7 +79,13 @@ class PatientClient {
 		//System.out.println(financeServices.billPaidByCash());
 		
 		PatientService jdbcService=new PatientJdbcServiceImpl();
-		System.out.println(jdbcService.topNPatients(3));
-
+		//jdbcService.addPatient(patient7);
+		//System.out.println(jdbcService.getPatient(100));
+		//jdbcService.deletePatient(107);
+		System.out.println(jdbcService.getAllPatients());
+		//System.out.println(jdbcService.updatePatientDischargeDate(100));
+		//System.out.println(jdbcService.topNPatients(2));
+		//System.out.println(jdbcService.getAllPatientsByYear(2020));
+		//System.out.println(jdbcService.sortByAge());
 	}
 }

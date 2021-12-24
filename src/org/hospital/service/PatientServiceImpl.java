@@ -22,9 +22,9 @@ public class PatientServiceImpl implements PatientService {
 		return null;
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
+	
 	@Override
-	public List<PatientData> addPatient(PatientData patient) {
+	public Boolean addPatient(PatientData patient) {
 //		for (PatientData patient1 : patientList) {
 //			if ((patient1.getpid() != patient.getpid()) || (patientList.isEmpty())) {
 //				
@@ -34,7 +34,7 @@ public class PatientServiceImpl implements PatientService {
 //			
 //		}
 		patientList.add(patient);
-		return patientList;
+		return true;
 	}
 
 	@Override
@@ -44,22 +44,16 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public List<PatientData> deletePatient(PatientData patient) {
+	public Boolean deletePatient(int pid) {
 
-		patientList.remove(patient);
-		return patientList;
+		patientList.removeIf(patient -> (patient.getpid() == pid));
+
+		return true;
 	}
 
 	@Override
 	public List<PatientData> topNPatients(int n) {
-		// TODO Auto-generated method stub
-		// return patientList.subList(0, n);
-//		for (PatientData patient: patientList) {
-//			  if(count<n) {
-//				  count++;
-//				  
-//			  }
-//			}
+
 		List<PatientData> patientTopList = new ArrayList<PatientData>();
 		for (int i = 0; i < n; i++) {
 			patientTopList.add(patientList.get(i));
@@ -80,10 +74,10 @@ public class PatientServiceImpl implements PatientService {
 		return patientListByYear;
 	}
 
-	public PatientData updatePatientJoiningDate(int pid) {
+	public PatientData updatePatientDischargeDate(int pid) {
 		for (int i = 0; i < patientList.size(); i++) {
 			if (patientList.get(i).getpid() == pid) {
-				patientList.get(i).setDateOfJoin(LocalDate.now());
+				patientList.get(i).setDateOfDischarge(LocalDate.now());
 				return patientList.get(i);
 			}
 		}

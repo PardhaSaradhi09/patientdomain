@@ -8,17 +8,17 @@ public interface PatientService {
 
 	public PatientData getPatient(int pid);
 
-	public List<PatientData> addPatient(PatientData Patient);
+	public Boolean addPatient(PatientData Patient);
 
 	public List<PatientData> getAllPatients();
 
-	public List<PatientData> deletePatient(PatientData Patient);
+	public Boolean deletePatient(int pid);
 
 	public List<PatientData> topNPatients(int n);
 
 	public List<PatientData> getAllPatientsByYear(int year);
 
-	public PatientData updatePatientJoiningDate(int pid);
+	public PatientData updatePatientDischargeDate(int pid);
 
 	public List<PatientData> sortByAge();
 
