@@ -15,7 +15,6 @@ public class FinanceData {
 	private double billDue;
 	private LocalDate billDate;
 
-
 	public FinanceData(int pid, int billID, String firstName, String lastName, char gender, byte age, int doctorID,
 			double billAmount, String paymentType, double billDue, LocalDate billDate) {
 		super();
@@ -41,7 +40,7 @@ public class FinanceData {
 	}
 
 	public FinanceData() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getPid() {
@@ -130,7 +129,5 @@ public class FinanceData {
 				+ lastName + ", gender=" + gender + ", age=" + age + ", doctorID=" + doctorID + ", billAmount="
 				+ billAmount + ", paymentType=" + paymentType + ", billDue=" + billDue + ", billDate=" + billDate + "]";
 	}
-
-
 
 }

@@ -1,10 +1,9 @@
 package org.hospital.domain;
 
-
 import java.time.LocalDate;
 
 public class PatientData {
-	
+
 	private int pid;
 	private String firstName;
 	private String lastName;
@@ -14,8 +13,8 @@ public class PatientData {
 	private String address;
 	private int doctorID;
 	private LocalDate dateOfJoin;
-	private	LocalDate dateOfDischarge;
-	
+	private LocalDate dateOfDischarge;
+
 	public PatientData(int pid, String firstName, String lastName, String gender, byte age, Long phn, String address,
 			int doctorID, LocalDate dateOfJoin, LocalDate dateOfDischarge) {
 		super();
@@ -28,12 +27,12 @@ public class PatientData {
 		this.address = address;
 		this.doctorID = doctorID;
 		this.dateOfJoin = dateOfJoin;
-		this.dateOfDischarge=dateOfDischarge;
-		
+		this.dateOfDischarge = dateOfDischarge;
+
 	}
 
 	public PatientData() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public int getpid() {
@@ -63,6 +62,7 @@ public class PatientData {
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String string) {
 		this.gender = string;
 	}
@@ -121,9 +121,5 @@ public class PatientData {
 				+ ", age=" + age + ", phn=" + phn + ", address=" + address + ", doctorID=" + doctorID + ", dateOfJoin="
 				+ dateOfJoin + ", dateOfDischarge=" + dateOfDischarge + "]";
 	}
-
-
-
-	
 
 }

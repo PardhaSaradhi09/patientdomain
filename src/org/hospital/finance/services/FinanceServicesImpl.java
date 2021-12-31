@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.hospital.domain.FinanceData;
 
-public class FinanceServicesImpl implements FinanceSevices {
+public class FinanceServicesImpl implements FinanceServices {
 
 	// List<FinanceData> financeList=new ArrayList<FinanceData>();
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hospital.domain.PatientData;
-import org.hospital.utils.PatientDataUtils;
+import org.hospital.utils.PatientServiceUtils;
 
 public class PatientJdbcServiceImpl implements PatientService {
 	/* Global variables */
@@ -16,7 +16,7 @@ public class PatientJdbcServiceImpl implements PatientService {
 	PreparedStatement pst;
 
 	List<PatientData> patientList = new ArrayList<PatientData>();
-	PatientDataUtils util = new PatientDataUtils();
+	PatientServiceUtils util = new PatientServiceUtils();
 
 	@Override
 	/* To retrieve specific patient by pid we can use the getPatient(Pid) method */
@@ -27,7 +27,7 @@ public class PatientJdbcServiceImpl implements PatientService {
 	}
 
 	@Override
-	/* To add the record in the database we can use this method*/
+	/* To add the record in the database we can use this method */
 	public Boolean addPatient(PatientData patient) {
 
 		return util.insertRecord(patient);

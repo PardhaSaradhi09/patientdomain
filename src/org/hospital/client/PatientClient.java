@@ -7,7 +7,8 @@ import org.hospital.domain.PatientData;
 import org.hospital.service.PatientJdbcServiceImpl;
 import org.hospital.service.PatientService;
 import org.hospital.service.PatientServiceImpl;
-import org.hospital.utils.PatientDataUtils;
+import org.hospital.utils.FinanceServiceUtils;
+import org.hospital.utils.PatientServiceUtils;
 
 class PatientClient {
 	public static void main(String args[]) {
@@ -82,10 +83,15 @@ class PatientClient {
 		//jdbcService.addPatient(patient7);
 		//System.out.println(jdbcService.getPatient(100));
 		//jdbcService.deletePatient(107);
-		System.out.println(jdbcService.getAllPatients());
+		//System.out.println(jdbcService.getAllPatients());
 		//System.out.println(jdbcService.updatePatientDischargeDate(100));
 		//System.out.println(jdbcService.topNPatients(2));
 		//System.out.println(jdbcService.getAllPatientsByYear(2020));
 		//System.out.println(jdbcService.sortByAge());
+		
+		FinanceServiceUtils jdbcFinanceSevice = new FinanceServiceUtils();
+		//jdbcFinanceSevice.addFinanceRecord(record5);
+		//System.out.println(jdbcFinanceSevice.getPatientBill(100));
+		System.out.println(jdbcFinanceSevice.getPatientDueBills());
 	}
 }

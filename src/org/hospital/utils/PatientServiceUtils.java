@@ -15,7 +15,7 @@ import org.hospital.domain.PatientData;
 
 import java.sql.PreparedStatement;
 
-public class PatientDataUtils {
+public class PatientServiceUtils {
 
 	Connection connection;
 	Statement stmt;
@@ -66,6 +66,7 @@ public class PatientDataUtils {
 				pst.setInt(8, patient.getDoctorID());
 				pst.setDate(9, Date.valueOf(patient.getDateOfJoin()));
 				pst.setDate(10, Date.valueOf(patient.getDateOfDischarge()));
+				
 				pst.execute();
 
 			} catch (SQLException e) {
@@ -91,7 +92,7 @@ public class PatientDataUtils {
 				java.sql.Date sqlDate = rs.getDate("dateOfJoin");
 				java.sql.Date sqlDate1 = rs.getDate("dateOfDischarge");
 				LocalDate dateOfJoin = sqlDate.toLocalDate();
-				LocalDate dateOfDischarge = sqlDate1.toLocalDate();
+				LocalDate dateOfDischarge = rs.getDate("dateOfDischarge").toLocalDate();
 
 				patientList.add(new PatientData(rs.getInt(1), rs.getString("firstName"), rs.getString("lastName"),
 						rs.getString("gender"), rs.getByte("age"), rs.getLong("phn"), rs.getString("address"),
@@ -231,22 +232,33 @@ public class PatientDataUtils {
 
 	public PatientData updatePatientDischargeDate(int pid) {
 		// TODO Auto-generated method stub
+		PreparedStatement pst1;
 		PatientData patient = new PatientData();
 		try {
-
+//          udapate query
 			pst = getConnection().prepareStatement(
-					"select * from patientRecords where pid=?;");/*
+					"update patientRecords set dateOfDischarge=? where pid=?;");/*
+																				 * we passing the SQL query in the
+																				 * prepStatment.
+																				 */
+			pst.setDate(1, Date.valueOf(LocalDate.now()));
+			pst.setInt(2, pid);
+			pst.execute();
+//         get updated query
+
+			pst1 = getConnection().prepareStatement(
+					"select * from patientRecords where pid = ?");/*
 																	 * we passing the SQL query in the prepStatment.
 																	 */
-			pst.setInt(1, pid);
-			ResultSet rs = pst.executeQuery();
+			pst1.setInt(1, pid);
+			ResultSet rs = pst1.executeQuery();
+
 			while (rs.next()) {
 
 				java.sql.Date sqlDate = rs.getDate("dateOfJoin");
 				java.sql.Date sqlDate1 = rs.getDate("dateOfDischarge");
 				LocalDate dateOfJoin = sqlDate.toLocalDate();
-				sqlDate1.toLocalDate();
-				LocalDate dateOfDischarge = LocalDate.now();
+				LocalDate dateOfDischarge = sqlDate1.toLocalDate();
 
 				patient = (new PatientData(rs.getInt(1), rs.getString("firstName"), rs.getString("lastName"),
 						rs.getString("gender"), rs.getByte("age"), rs.getLong("phn"), rs.getString("address"),
